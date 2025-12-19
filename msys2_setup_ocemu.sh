@@ -210,8 +210,9 @@ DESTDIR=../.. LUAPATH= LUACPATH= make install
 cd ..
 rm -rf luasec
 cd ..
+windres appico.rc -o icon.o
 echo "Built dependencies!"
-gcc -s -o OCEmu.exe winstub.c -Wl,--subsystem,windows -mwindows -llua
+gcc -s -o OCEmu.exe icon.o winstub.c -Wl,--subsystem,windows -mwindows -llua
 case "$MACHINE_TYPE" in
 i686)
 	cp /mingw32/bin/lua53.dll .
@@ -234,8 +235,14 @@ strip -s OCEmu.exe *.dll extras/*.dll extras/*/core.dll
 date '+%Y%m%d%H%M%S' > builddate.txt
 cd ..
 echo "Built everything!"
-read -p "Download required resources? [Y/n] " -n 1 -r
+read -p "Download required resources? This will temporarily download opencomputers to extract resources. [Y/n] " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] || [ -z $REPLY ]; then
-	make all
+	cd src/
+	git clone https://github.com/MightyPirates/OpenComputers/
+	mv OpenComputers/src/main/resources/assets/opencomputers/font.hex font.hex
+	mv OpenComputers/src/main/resources/assets/opencomputers/lua lua
+	mv OpenComputers/src/main/resources/assets/opencomputers/loot loot
+	rm -rf OpenComputers
+	echo "Done!"
 fi
