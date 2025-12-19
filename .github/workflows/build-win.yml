@@ -12,12 +12,12 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
       with:
         submodules: true
 
     - name: Setup MSYS
-      uses: msys2/setup-msys2@v4
+      uses: msys2/setup-msys2@v2
       with:
         msystem: MINGW64
 
