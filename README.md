@@ -4,12 +4,12 @@ Forked from zenith391's Fork, original created by BlueAmulet
 ==============================
 
 Fixes implemented in this version have only been tested with Windows and fixes may not apply to other operating systems
-If you want to use OCemu with other OSs, please use [zenith391`s Fork](https://github.com/zenith391/OCEmu)
+If you want to use OCemu with other OSs, please use [zenith391's Fork](https://github.com/zenith391/OCEmu)
 
 Installation
 ------------
 
-I may add precompiled binaries later.
+Precompiled Binaries: [Windows](https://nightly.link/Curlychump/OCEmu/workflows/build-win/master)
 
 1. Clone this repository using: `git clone --recursive https://github.com/Curlychump/OCEmu.git`
 2. Download and install Msys2
@@ -19,5 +19,4 @@ I may add precompiled binaries later.
 Running
 -------
 OCemu will leave its created files in `%appdata%/OCemu` by default.
-If you want to run a seperate machine, you can add a directory as an argument while running ```boot.lua```
 
