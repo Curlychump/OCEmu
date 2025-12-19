@@ -12,12 +12,12 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         submodules: true
 
     - name: Setup MSYS
-      uses: msys2/setup-msys2@v2
+      uses: msys2/setup-msys2@v4
       with:
         msystem: MINGW64
 
@@ -27,7 +27,7 @@ jobs:
       run: TMOUT=1 script -q -e -c "bash ./msys2_setup_ocemu.sh"
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: OCEmu
         path: src
